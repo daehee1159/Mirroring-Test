@@ -60,6 +60,7 @@ export default {
     },
 
     checkCorporateRegiNumber(number) {
+      // 코드 참조 https://myhappyman.tistory.com/129
       var numberMap = number.replace(/-/gi, '').split('').map(function (d) {
         return parseInt(d, 10);
       });
