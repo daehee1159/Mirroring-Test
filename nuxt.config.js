@@ -68,7 +68,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // toast ui editor
-
+    '@nuxtjs/axios'
 
   ],
 
