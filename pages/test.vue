@@ -18,27 +18,22 @@ export default {
   },
   methods: {
     async testMethod() {
-      // 이 값들은 async await 를 빼고도 해보고 .then을 써서도 해보면서 테스트
-      await this.$axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then(res => {
-        this.data1 = res
+      try {
+        this.data1 = await this.$axios.get("https://jsonplaceholder.typicode.com/posts")
         console.log("data1 결과")
-      })
-      await this.$axios.get("https://jsonplaceholder.typicode.com/posts/1")
-      .then(res => {
-        this.data2 = res
+        console.log(this.data1)
+        this.data2 = await this.$axios.get("https://jsonplaceholder.typicode.com/posts/1")
         console.log("data2 결과")
-      })
-      await this.$axios.get("https://jsonplaceholder.typicode.com/posts/1/comments")
-      .then(res => {
-        this.data3 = res
+        console.log(this.data2)
+        this.data3 = await this.$axios.get("https://jsonplaceholder.typicode.com/posts/1/comments")
         console.log("data3 결과")
-      })
-      await this.$axios.get("https://jsonplaceholder.typicode.com/comments?postId=1")
-      .then(res => {
-        this.data4 = res
+        console.log(this.data3)
+        this.data4 = await this.$axios.get("https://jsonplaceholder.typicode.com/comments?postId=1")
         console.log("data4 결과")
-      })
+        console.log(this.data4)
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
   mounted() {
